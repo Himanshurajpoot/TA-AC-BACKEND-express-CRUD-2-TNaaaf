@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/articles"><button>Home</button></a>
+    <a href="/articles/<%=article.id%>"><button>article Details</button></a>
+     <form action="/articles/<%=article.id%>" method="post">
+        <input type="text" placeholder="Titale" name="title" value="<%=article.title%>">
+        <input type="text" placeholder="Description" name="description" value="<%=article.description%>">
+        <input type="text" placeholder="Tags" name="tags" value="<%=article.tags%>">
+        <input type="text" placeholder="Author" name="author" value="<%=article.auther%>">
+        <input type="number" placeholder="Likes" name="likes" value="<%=article.likes%>">
+        <input type="submit" value="Update Article">
+    </form>
+</body>
+</html>

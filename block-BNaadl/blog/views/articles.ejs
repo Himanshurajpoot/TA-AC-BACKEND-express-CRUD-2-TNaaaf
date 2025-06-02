@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>List Of All Articles</h1>
+
+    <section>
+      <% if(articles.length){%>
+         <% articles.forEach(article=>{%>
+            <div>
+
+                <a href="/articles/<%=article.id%>"><%=article.title%></a>
+            </div>
+      
+      <%})%>
+    <%} else{%>
+      <p>No Articles Present</p>
+    <%}%>
+    </section>
+  </body>
+</html>

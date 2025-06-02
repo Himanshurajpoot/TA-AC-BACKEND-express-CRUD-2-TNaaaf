@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>welcome to Article</h1>
+    <div>
+        <h2><%=article.title%></h2>
+        <h2><%=article.discription%></h2>
+        <h2><%=article.tags%></h2>
+        <h2><%=article.author%></h2>
+        <h2><%=article.likes%></h2>
+       <a href="/articles/<%=article.id%>/like"><button> Like</button></a>
+       <a href="/articles/<%=article.id%>/dislike"><button> DisLike</button></a>
+       <a href="/articles/<%=article.id%>/edit"><button>Edit</button></a>
+       <a href="/articles/<%=article.id%>/delete"><button>Delete</button></a>
+    </div>
+
+</body>
+</html>

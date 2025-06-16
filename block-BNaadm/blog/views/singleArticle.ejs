@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/2f2d30da61.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/articles/new">Add Article</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div>
+      <h1>welcome to Article</h1>
+    </div>
+
+    <div>
+      <div class="artcle_details">
+        <h2><strong>Title:</strong> <%= article.title %></h2>
+        <h2><strong>Description:</strong> <%= article.discription %></h2>
+        <h2><strong>Tags:</strong> <%= article.tags %></h2>
+        <h2><strong>Author:</strong> <%= article.author %></h2>
+      </div>
+
+      <div class="interaction-card">
+        <div class="votes-container">
+          <div class="vote">
+            <a href="/articles/<%=article.id%>/like" title="like">
+              <i class="fa-solid fa-thumbs-up"></i>
+            </a>
+            <span><%= article.likes || 0 %></span>
+          </div>
+          <div class="vote">
+            <a href="/articles/<%=article.id%>/dislike" title="dislike">
+              <i class="fa-solid fa-thumbs-down"></i>
+            </a>
+            <span><%= article.dislikes || 0 %></span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a href="/articles/<%=article.id%>/edit">
+            <button class="edit-btn">✏️ Edit</button>
+          </a>
+          <a href="/articles/<%=article.id%>/delete">
+            <button class="delete-btn">🗑️ Delete</button>
+          </a>
+        </div>
+      </div>
+
+      <div class="comment">
+        <form action="/articles/<%= article._id %>/comments" method="POST">
+          <textarea
+            name="content"
+            rows="2"
+            placeholder="Add Comments..."
+          ></textarea>
+          <input type="submit" value="Add Comments" />
+        </form>
+      </div>
+
+      <div class="comments-section">
+        <h2>🗨️ Comments</h2>
+
+        <% article.comments.forEach(comment => { %>
+        <div class="comment-card">
+          <p class="comment-text"><%= comment.content %></p>
+
+          <div class="comment-interaction">
+            <div class="votes-container">
+              <a href="/comments/<%=comment.id%>/like" title="Like">
+                <i class="fa-solid fa-thumbs-up"></i>
+              </a>
+              <span><%= comment.likes || 0 %></span>
+
+              <a href="/comments/<%=comment.id%>/dislike" title="Dislike">
+                <i class="fa-solid fa-thumbs-down"></i>
+              </a>
+              <span><%= comment.dislikes || 0 %></span>
+            </div>
+
+            <div class="actions">
+              <a href="/comments/<%= comment.id %>/edit">
+                <button class="edit-btn">✏️ Edit</button>
+              </a>
+              <a href="/comments/<%= comment.id %>/delete">
+                <button class="delete-btn">🗑️ Delete</button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

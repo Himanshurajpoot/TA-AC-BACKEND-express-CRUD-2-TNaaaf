@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/articles/new">Add Article</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+   
+     <form action="/articles/<%=article.id%>" method="post">
+        <input type="text" placeholder="Titale" name="title" value="<%=article.title%>">
+        <input type="text" placeholder="Description" name="discription" value="<%=article.discription%>">
+        <input type="text" placeholder="Tags" name="tags" value="<%=article.tags%>">
+        <input type="text" placeholder="Author" name="author" value="<%=article.author%>">
+        <input type="submit" value="Update Article">
+    </form>
+  
+    
+</body>
+</html>

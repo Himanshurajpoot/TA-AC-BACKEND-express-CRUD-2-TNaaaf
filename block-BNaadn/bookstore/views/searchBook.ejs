@@ -18,18 +18,22 @@
     </ul>
   </nav>
 </header>
-  <section>
-  <% books.forEach(book => { %>
-    <div class="book-card">
-      <img src="/images/<%= book.cover_image %>" alt="Cover" />
-      <div class="book-details">
-        <h2><strong>Title:</strong> <%= book.title %></h2>
-        <h2><strong>Summary:</strong> <%= book.summary %></h2>
-        <h2><strong>Pages:</strong> <%= book.pages %></h2>
-        <h2><strong>Publication:</strong> <%= book.publication %></h2>
-      </div>
-    </div>
-  <% }) %>
-</section>
+   <section>
+        <% books.forEach(book => { %>
+        <div class="book-card">
+          <img src="/images/<%= book.cover_image %>" alt="Cover" />
+          <div class="book-details">
+            <h2><strong>Title:</strong> <%= book.title %></h2>
+            <h2><strong>Summary:</strong> <%= book.summary %></h2>
+            <h2><strong>Pages:</strong> <%= book.pages %></h2>
+            <h2><strong>Publication:</strong> <%= book.publication %></h2>
+            <h2><strong>Category:</strong> <%= book.category %></h2>
+             <h2><strong>Author_Name:</strong> <%= book.author.name %></h2>
+             <h2><strong>Author_Email:</strong> <%= book.author.email %></h2>
+             <h2><strong>Author_Country:</strong> <%= book.author.country %></h2>
+          </div>
+        </div>
+        <% }) %>
+      </section>
   </body>
 </html>

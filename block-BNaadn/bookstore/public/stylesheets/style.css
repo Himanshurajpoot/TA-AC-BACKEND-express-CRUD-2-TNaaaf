@@ -18,6 +18,9 @@ header {
   background: #1e1f26;
   color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav {
@@ -30,7 +33,6 @@ nav {
   flex-wrap: wrap;
 }
 
-/* Brand / Logo */
 nav .brand {
   font-size: 1.8rem;
   font-weight: 600;
@@ -39,7 +41,6 @@ nav .brand {
   letter-spacing: 1px;
 }
 
-/* Navigation menu */
 nav ul {
   display: flex;
   list-style: none;
@@ -55,19 +56,67 @@ nav ul li a {
   transition: all 0.3s ease;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
   background-color: #ffc107;
   color: #1e1f26;
+}
+
+/* ---------------- HOME PAGE ---------------- */
+.hero {
+  background: linear-gradient(135deg, #1e1f26, #343a40, #1e1f26);
+  background-size: 200% 200%;
+  animation: gradientSlide 10s ease infinite;
+  color: white;
+  padding: 120px 20px 100px;
+  text-align: center;
+  border-radius: 0 0 30px 30px;
+}
+
+@keyframes gradientSlide {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.85;
+}
+
+.hero a {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 36px;
+  background-color: #ffc107;
+  color: #1e1f26;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: 0.3s ease;
+}
+
+.hero a:hover {
+  background-color: #e0a800;
+  color: white;
 }
 
 /* ---------------- FORM ---------------- */
 form {
   background-color: white;
   max-width: 800px;
-  margin: 40px auto;
-  padding: 35px;
+  margin: 50px auto;
+  padding: 40px;
   border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
 form h2, form h3 {
@@ -77,8 +126,8 @@ form h2, form h3 {
 
 input, textarea {
   width: 100%;
-  padding: 12px 15px;
-  margin-bottom: 20px;
+  padding: 14px 18px;
+  margin-bottom: 25px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
@@ -87,6 +136,7 @@ input, textarea {
 
 input:focus, textarea:focus {
   border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
   outline: none;
 }
 
@@ -95,8 +145,10 @@ input[type="submit"] {
   color: white;
   border: none;
   font-weight: bold;
+  padding: 14px 24px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: 0.3s;
 }
 
 input[type="submit"]:hover {
@@ -104,8 +156,6 @@ input[type="submit"]:hover {
 }
 
 /* ---------------- SEARCH BAR ---------------- */
-/* --- Search Form Styling --- */
-/* ------------------ Search Form (Fixed & Styled) ------------------ */
 .search-form {
   display: flex;
   justify-content: center;
@@ -131,7 +181,7 @@ input[type="submit"]:hover {
 
 .search-form input[type="text"]:focus {
   border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
 }
 
 .search-form input[type="submit"] {
@@ -149,8 +199,6 @@ input[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-
-
 /* ---------------- BOOK CARDS ---------------- */
 section {
   max-width: 1200px;
@@ -160,33 +208,103 @@ section {
 
 .book-card {
   background-color: #fff;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 14px;
+  padding: 24px;
   display: flex;
   gap: 20px;
   margin-bottom: 25px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .book-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
 }
 
 .book-card img {
   width: 180px;
-  height: auto;
+  height: 260px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .book-details h2 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: #333;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
+
+/* ---------------- BUTTON STYLES ---------------- */
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.book-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.book-card {
+  height: 100%; /* or set to something like 500px if you want fixed */
+}
+
+
+.edit-btn,
+.delete-btn {
+  padding: 10px 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-right: 10px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Remove fixed positioning */
+  position: relative; /* Optional, or just delete this line */
+}
+
+.edit-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #218838;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+
+
+.empty-message {
+  padding: 30px;
+  text-align: center;
+  color: #b00;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
 
 /* ---------------- RESPONSIVE ---------------- */
 @media (max-width: 768px) {
@@ -210,14 +328,23 @@ section {
     width: 100%;
   }
 
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
   .book-card {
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
   .book-card img {
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
   }
 
   form {

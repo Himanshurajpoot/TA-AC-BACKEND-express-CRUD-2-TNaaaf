@@ -4,21 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
- <link rel="stylesheet" href="/stylesheets/style.css?v=2" />
-
+    <link rel="stylesheet" href="/stylesheets/style.css?v=2" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
- <header>
-  <nav>
-    <div class="brand">📚 Bookstore</div>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/books">Books</a></li>
-      <li><a href="/books/new">Add Book</a></li>
-    </ul>
-  </nav>
-</header>
-   <section>
+    <header>
+      <nav>
+        <div class="brand">📚 Bookstore</div>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/books">Books</a></li>
+          <li><a href="/books/new">Add Book</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+      <% if (message) { %>
+      <section class="empty-message">
+        <p><%= message %></p>
+      </section>
+      <% } %> <% if (books.length > 0) { %>
+      <section>
         <% books.forEach(book => { %>
         <div class="book-card">
           <img src="/images/<%= book.cover_image %>" alt="Cover" />
@@ -28,12 +37,23 @@
             <h2><strong>Pages:</strong> <%= book.pages %></h2>
             <h2><strong>Publication:</strong> <%= book.publication %></h2>
             <h2><strong>Category:</strong> <%= book.category %></h2>
-             <h2><strong>Author_Name:</strong> <%= book.author.name %></h2>
-             <h2><strong>Author_Email:</strong> <%= book.author.email %></h2>
-             <h2><strong>Author_Country:</strong> <%= book.author.country %></h2>
+            <h2><strong>Author_Name:</strong> <%= book.author.name %></h2>
+            <h2><strong>Author_Email:</strong> <%= book.author.email %></h2>
+            <h2><strong>Author_Country:</strong> <%= book.author.country %></h2>
+          </div>
+          <!-- BUTTONS -->
+          <div class="book-actions">
+            <a href="/books/<%= book.id %>/edit">
+              <button class="edit-btn">✏️ Edit</button>
+            </a>
+            <a href="/books/<%= book.id %>/delete">
+              <button class="delete-btn">🗑️ Delete</button>
+            </a>
           </div>
         </div>
         <% }) %>
       </section>
+      <% } %>
+    </section>
   </body>
 </html>

@@ -1,20 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= title %></title>
-   <link rel="stylesheet" href="/stylesheets/style.css?v=2" />
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Bookstore</title>
+    <link rel="stylesheet" href="/stylesheets/style.css?v=2" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-<header>
-  <nav>
-    <div class="brand">📚 Bookstore</div>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/books">Books</a></li>
-      <li><a href="/books/new">Add Book</a></li>
-    </ul>
-  </nav>
-</header>
+    <!-- HEADER NAVIGATION -->
+    <header>
+      <nav>
+        <div class="brand">📚 Bookstore</div>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/books">Books</a></li>
+          <li><a href="/books/new">Add Book</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Discover Your Next Favorite Book</h1>
+        <p>
+          Explore a wide variety of books and manage your collection with ease.
+          Add, browse, search, and edit your favorite titles from authors around
+          the world.
+        </p>
+        <a href="/books" class="hero-btn">Start Exploring 📚</a>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features">
+      <div class="feature">
+        <h3>📖 Browse Books</h3>
+        <p>See all books in a clean, card-style layout with images and details.</p>
+      </div>
+      <div class="feature">
+        <h3>➕ Add New Titles</h3>
+        <p>Easily add new books with rich metadata including cover images.</p>
+      </div>
+      <div class="feature">
+        <h3>🔍 Search Quickly</h3>
+        <p>Search by title or author using a clean, responsive search bar.</p>
+      </div>
+    </section>
   </body>
 </html>

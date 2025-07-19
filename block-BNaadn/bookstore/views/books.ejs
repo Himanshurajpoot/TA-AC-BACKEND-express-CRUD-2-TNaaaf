@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Books</title>
-   <link rel="stylesheet" href="/stylesheets/style.css?v=2" />
-
+    <link rel="stylesheet" href="/stylesheets/style.css?v=2" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
@@ -20,33 +23,50 @@
     </header>
     <main>
       <section>
-
-          <form action="/books/search" method="post">
-            <input
-              type="text"
-              name="book"
-              placeholder="Search books by title or author..."
-            />
-            <input type="submit" value="Search" />
-          </form>
-       
+        <form action="/books/search" method="post">
+          <input
+            type="text"
+            name="book"
+            placeholder="Search books by title or author..."
+          />
+          <input type="submit" value="Search" />
+        </form>
       </section>
       <section>
-        <% books.forEach(book => { %>
-        <div class="book-card">
-          <img src="/images/<%= book.cover_image %>" alt="Cover" />
-          <div class="book-details">
-            <h2><strong>Title:</strong> <%= book.title %></h2>
-            <h2><strong>Summary:</strong> <%= book.summary %></h2>
-            <h2><strong>Pages:</strong> <%= book.pages %></h2>
-            <h2><strong>Publication:</strong> <%= book.publication %></h2>
-            <h2><strong>Category:</strong> <%= book.category %></h2>
-             <h2><strong>Author_Name:</strong> <%= book.author.name %></h2>
-             <h2><strong>Author_Email:</strong> <%= book.author.email %></h2>
-             <h2><strong>Author_Country:</strong> <%= book.author.country %></h2>
+        <% if (books.length === 0) { %>
+        <section class="empty-message">
+          <p>No books available in the library. Please add some books.</p>
+        </section>
+        <% } else { %>
+        <section>
+          <% books.forEach(book => { %>
+          <div class="book-card">
+            <img src="/images/<%= book.cover_image %>" alt="Cover" />
+            <div class="book-details">
+              <h2><strong>Title:</strong> <%= book.title %></h2>
+              <h2><strong>Summary:</strong> <%= book.summary %></h2>
+              <h2><strong>Pages:</strong> <%= book.pages %></h2>
+              <h2><strong>Publication:</strong> <%= book.publication %></h2>
+              <h2><strong>Category:</strong> <%= book.category %></h2>
+              <h2><strong>Author_Name:</strong> <%= book.author.name %></h2>
+              <h2><strong>Author_Email:</strong> <%= book.author.email %></h2>
+              <h2>
+                <strong>Author_Country:</strong> <%= book.author.country %>
+              </h2>
+            </div>
+            <!-- BUTTONS -->
+            <div class="book-actions">
+              <a href="/books/<%= book.id %>/edit">
+                <button class="edit-btn">✏️ Edit</button>
+              </a>
+              <a href="/books/<%= book.id %>/delete">
+                <button class="delete-btn">🗑️ Delete</button>
+              </a>
+            </div>
           </div>
-        </div>
-        <% }) %>
+          <% }) %>
+        </section>
+        <% } %>
       </section>
     </main>
   </body>
